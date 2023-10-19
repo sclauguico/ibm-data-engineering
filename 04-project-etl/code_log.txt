@@ -1,0 +1,6 @@
+2023-Oct-19-23:04:05,Preliminaries complete. Initiating ETL process
+2023-Oct-19-23:04:07,Data saved to CSV file
+2023-Oct-19-23:04:07,SQL Connection initiated
+2023-Oct-19-23:04:07,Data loaded to Database as a table, Executing queries
+2023-Oct-19-23:04:07,Process Complete
+2023-Oct-19-23:04:07,Server Connection closed
