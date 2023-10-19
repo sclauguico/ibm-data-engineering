@@ -1,0 +1,6 @@
+2023-Oct-19-17:04:48,ETL Job Started
+2023-Oct-19-17:04:48,Extract phase Started
+2023-Oct-19-17:04:51,Transform phase Started
+2023-Oct-19-17:04:51,Load to csv phase Started
+2023-Oct-19-17:04:51,Load to database phase Started
+2023-Oct-19-17:04:51,Run Query Started
