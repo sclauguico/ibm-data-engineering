@@ -1,3 +1,27 @@
 wget https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-DB0110EN-SkillsNetwork/datasets/sakila/sakila_mysql_dump.sql
 
 start_mysql
+
+mysql --host=127.0.0.1 --port=3306 --user=root --password
+
+Njk5My1zY2xhdWd1
+
+create database sakila;
+
+use sakila;
+
+source sakila_mysql_dump.sql;
+
+SHOW FULL TABLES WHERE table_type = 'BASE TABLE';
+
+DESCRIBE staff;
+
+SELECT * FROM staff;
+
+\q
+
+mysqldump --host=127.0.0.1 --port=3306 --user=root --password sakila staff > sakila_staff_mysql_dump.sql
+
+Njk5My1zY2xhdWd1
+
+cat sakila_staff_mysql_dump.sql
