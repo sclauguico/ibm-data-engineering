@@ -1,0 +1,6 @@
+wget https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-DB0110EN-SkillsNetwork/datasets/sakila/sakila_pgsql_dump.sql
+
+create database sakila;
+
+# create a new database named sakila outside the command line interface :
+createdb --username=postgres --host=localhost --password sakila
