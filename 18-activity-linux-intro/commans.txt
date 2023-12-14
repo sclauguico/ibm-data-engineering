@@ -1,0 +1,77 @@
+ls
+
+ls /
+
+ls /bin
+
+cd ~
+
+pwd
+
+cd ..
+
+cd /
+
+cd bin
+
+cd ../home/theia
+
+cd ../project
+
+
+
+
+sudo apt update
+
+sudo apt upgrade nano
+
+sudo apt install vim
+
+cd /home/project
+
+nano hello_world.txt
+
+Hello world!
+
+This is the second line of my first-ever text file created with nano.
+
+Ctrl + x
+
+Y 
+
+Enter
+
+cat hello_world.txt
+
+
+
+vim
+
+:help
+
+:q
+
+vim hello_world_2.txt
+
+i
+
+Hello World!
+
+This is the second line.
+
+esc button
+
+:w
+
+:q
+
+vim done.txt
+
+echo "I am done with the lab!"
+
+esc button
+
+:wq
+
+
+bash done.txt
