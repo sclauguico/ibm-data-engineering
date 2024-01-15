@@ -1,0 +1,33 @@
+whoami
+
+who
+
+uname
+
+uname -a
+
+id
+
+df
+
+df -h
+
+ps
+
+ps -e
+
+top
+
+top -n 10
+
+echo "Welcome to the linux lab"
+
+echo -e "This will be printed \nin two lines"
+
+date
+
+date "+%D"
+
+man ls
+
+man -k .
