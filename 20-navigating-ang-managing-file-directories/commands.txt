@@ -1,0 +1,91 @@
+pwd
+
+ls
+
+ls /bin
+
+ls /bin/ls
+
+ls /bin/b*
+
+ls /bin/*r
+
+ls  -l
+
+ls -la /etc
+
+mkdir scripts
+
+ls
+
+cd scripts
+
+pwd
+
+cd
+
+pwd
+
+cd ..
+
+cd
+
+touch myfile.txt
+
+ls
+
+touch myfile.txt
+
+date -r myfile.txt
+
+find /etc -name \'*.txt\' 
+
+rm -i myfile.txt
+
+ls
+
+touch users.txt
+
+mv users.txt user-info.txt
+
+ls
+
+mv user-info.txt /tmp
+
+ls
+
+ls -l /tmp
+
+cp /tmp/user-info.txt user-info.txt
+
+ls
+
+cp /etc/passwd users.txt
+
+ls
+
+
+ls /home
+
+cd
+pwd
+
+mkdir tmp
+ls
+
+cd tmp
+touch display.sh
+ls -l
+
+
+cp display.sh report.sh
+
+mv report.sh ../
+ls 
+ls ../
+
+rm -i display.sh
+
+ls -ltr /etc/
+
+cp /var/log/bootstrap.log .
