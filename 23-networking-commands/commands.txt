@@ -1,0 +1,42 @@
+hostname
+
+hostname -i
+
+ifconfig
+
+ifconfig eth0
+
+ping www.google.com
+
+ctrl + c
+
+ping www.google.com
+
+ping -c 5 www.google.com
+
+
+
+curl https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-DB0250EN-SkillsNetwork/labs/Bash%20Scripting/usdoi.txt
+
+curl -O https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-DB0250EN-SkillsNetwork/labs/Bash%20Scripting/usdoi.txt
+
+rm usdoi.txt
+
+wget https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-DB0250EN-SkillsNetwork/labs/Bash%20Scripting/usdoi.txt
+
+
+
+cd `/home/project`
+pwd
+
+hostname -i
+
+ping www.google.com
+
+ifconfig eth0
+
+curl www.google.com
+
+wget www.google.com
+
+ls -l

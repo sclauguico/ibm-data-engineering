@@ -1,0 +1,89 @@
+cd ~
+
+
+cat entrypoint.sh
+
+more entrypoint.sh
+
+less entrypoint.sh
+
+
+
+cd /home/project
+wget https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-DB0250EN-SkillsNetwork/labs/Bash%20Scripting/usdoi.txt
+
+ls
+
+head usdoi.txt
+
+head -3 usdoi.txt
+
+tail usdoi.txt
+
+tail -2 usdoi.txt
+
+
+
+wc usdoi.txt
+
+wc -l usdoi.txt
+
+wc -w usdoi.txt
+
+wc -c usdoi.txt
+
+
+
+sort usdoi.txt
+
+sort -r usdoi.txt
+
+wget https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-LX0117EN-SkillsNetwork/labs/module%201/zoo.txt
+
+cat zoo.txt
+
+uniq zoo.txt
+
+
+grep people usdoi.txt
+
+grep -v login /etc/passwd
+
+cut -c -2 zoo.txt
+
+cut -c 2- zoo.txt
+
+wget https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-LX0117EN-SkillsNetwork/labs/v4_new_content/labs/names_and_numbers.csv
+cat names_and_numbers.csv
+
+cut -d "," -f2 names_and_numbers.csv
+
+
+wget https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-LX0117EN-SkillsNetwork/labs/module%201/zoo_ages.txt
+
+paste zoo.txt zoo_ages.txt
+
+paste -d "," zoo.txt zoo_ages.txt
+
+
+
+cd ~
+pwd
+wc -l /etc/passwd
+
+grep "not installed" /var/log/bootstrap.log
+
+wget https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-DB0250EN-SkillsNetwork/labs/Bash%20Scripting/top-sites.txt
+grep org top-sites.txt 
+
+curl -o top-sites.txt https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-DB0250EN-SkillsNetwork/labs/Bash%20Scripting/top-sites.txt
+grep org top-sites.txt 
+
+head -n 7 top-sites.txt
+
+tail -n 7 top-sites.txt
+
+cut -c -3 top-sites.txt
+
+cd /home/project
+cut -d "," -f 1 names_and_numbers.csv

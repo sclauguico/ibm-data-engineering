@@ -1,0 +1,15 @@
+tar -cvf bin.tar /bin
+
+tar -tvf bin.tar
+
+tar -xvf bin.tar
+
+ls -l
+
+zip config.zip /etc/*.conf
+
+zip -r bin.zip /bin
+
+unzip -l config.zip
+
+unzip -o bin.zip
