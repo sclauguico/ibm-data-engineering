@@ -1,0 +1,67 @@
+cd /home/project
+wget https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-LX0117EN-SkillsNetwork/labs/module%201/usdoi.txt
+
+ls -l usdoi.txt
+
+chmod -r usdoi.txt               
+
+ls -l usdoi.txt
+
+chmod +r usdoi.txt                
+
+ls -l usdoi.txt
+
+chmod o-r usdoi.txt
+
+ls -l usdoi.txt
+
+
+
+
+cd /home/project
+mkdir test
+
+ls -l
+
+cd test
+mkdir test2
+cd ../
+
+chmod u-x test
+
+cd test
+
+ls -l
+
+mkdir test/test3
+
+chmod u+x test
+chmod u-w test
+ls -l
+
+cd test
+mkdir test_again
+
+
+cd /home/project
+ls -l usdoi.txt
+
+chmod u-w  usdoi.txt
+ls -l usdoi.txt
+
+rm usdoi.txt 
+
+ls usdoi.txt
+
+mkdir tmp_dir
+
+ls -ld tmp_dir
+
+chmod u-w tmp_dir
+
+cd tmp_dir
+mkdir sub_dir
+
+or
+
+mkdir tmp_dir/sub_dir
