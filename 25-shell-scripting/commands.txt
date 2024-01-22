@@ -1,0 +1,7 @@
+chmod +x greet.sh
+
+chmod u+x greet.sh
+
+ls -l greet.sh
+
+./greet.sh
