@@ -1,0 +1,92 @@
+touch rx_poc.log
+
+header=$(echo -e "year\tmonth\tday\thour\tobs_tmp\tfc_temp")
+echo $header>rx_poc.log
+
+or
+
+echo -e "year\tmonth\tday\thour\tobs_tmp\tfc_temp">rx_poc.log
+
+
+touch rx_poc.sh
+
+Add this in rx_poc.sh #! /bin/bash
+
+or 
+
+chmod u+x rx_poc.sh
+
+today=$(date +%Y%m%d)
+weather_report=raw_data_$today
+
+weather_report=raw_data_$(date +%Y%m%d)
+
+city=Casablanca
+curl wttr.in/$city --output $weather_report
+
+echo "There are    too    many spaces in this    sentence." | tr -s " "
+
+echo " Never start or end a sentence with a space. " | xargs 
+
+echo ".sdrawkcab saw ecnetnes sihT" | rev
+
+# Unfortunately, this prints the last field of the string, which is empty:
+echo "three two one " | rev | cut -d " " -f 1 | rev
+# But if you trim the trailing space first, you get the expected result:
+echo "three two one " | xargs | rev | cut -d " " -f 1 | rev
+
+
+
+grep °C $weather_report > temperatures.txt
+
+obs_tmp=$(head -1 temperatures.txt | tr -s " " | xargs | rev | cut -d " " -f2 | rev)
+
+fc_temp=$(head -3 temperatures.txt | tail -1 | tr -s " " | xargs | cut -d "C" -f2 | rev | cut -d " " -f2 | rev)
+
+hour=$(TZ='Morocco/Casablanca' date -u +%H) 
+day=$(TZ='Morocco/Casablanca' date -u +%d) 
+month=$(TZ='Morocco/Casablanca' date +%m)
+year=$(TZ='Morocco/Casablanca' date +%Y)
+
+record=$(echo -e "$year\t$month\t$day\t$hour\t$obs_tmp\t$fc_temp")
+echo $record>>rx_poc.log
+
+
+#! /bin/bash
+
+# create a datestamped filename for the raw wttr data:
+today=$(date +%Y%m%d)
+weather_report=raw_data_$today
+
+# download today's weather report from wttr.in:
+city=Casablanca
+curl wttr.in/$city --output $weather_report
+
+# use command substitution to store the current day, month, and year in corresponding shell variables:
+hour=$(TZ='Morocco/Casablanca' date -u +%H) 
+day=$(TZ='Morocco/Casablanca' date -u +%d) 
+month=$(TZ='Morocco/Casablanca' date +%m)
+year=$(TZ='Morocco/Casablanca' date +%Y)
+
+# extract all lines containing temperatures from the weather report and write to file
+grep °C $weather_report > temperatures.txt
+
+# extract the current temperature 
+obs_tmp=$(head -1 temperatures.txt | tr -s " " | xargs | rev | cut -d " " -f2 | rev)
+
+# extract the forecast for noon tomorrow
+fc_temp=$(head -3 temperatures.txt | tail -1 | tr -s " " | xargs | cut -d "C" -f2 | rev | cut -d " " -f2 |rev)
+
+# create a tab-delimited record
+# recall the header was created as follows:
+# header=$(echo -e "year\tmonth\tday\thour_UTC\tobs_tmp\tfc_temp")
+# echo $header>rx_poc.log
+
+record=$(echo -e "$year\t$month\t$day\t$obs_tmp\t$fc_temp")
+# append the record to rx_poc.log
+echo $record>>rx_poc.log
+
+
+crontab -e
+
+0 8 * * * /home/project/rx_poc.sh
