@@ -1,0 +1,7 @@
+USE world;
+
+CREATE TABLE MyISAM_test (i INT NOT NULL, c CHAR(10) NOT NULL) ENGINE = MYISAM;
+
+USE information_schema;
+
+SELECT table_name, engine FROM TABLES WHERE table_schema = 'world';

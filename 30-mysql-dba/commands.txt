@@ -1,0 +1,41 @@
+wget https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-DB0231EN-SkillsNetwork/datasets/World/world_mysql_script.sql
+
+CREATE DATABASE world;
+
+USE world;
+
+SOURCE world_mysql_script.sql;
+
+SHOW TABLES;
+
+SHOW ENGINES;
+
+CREATE TABLE csv_test (i INT NOT NULL, c CHAR(10) NOT NULL) ENGINE = CSV;
+
+SHOW TABLES;
+
+INSERT INTO csv_test VALUES(1,'data one'),(2,'data two'),(2,'data three');
+
+SELECT * FROM csv_test;
+
+SHOW DATABASES;
+
+USE mysql;
+
+SHOW TABLES;
+
+SELECT User from user;
+
+CREATE USER test_user;
+
+SELECT User from user;
+
+SHOW DATABASES;
+
+USE information_schema;
+
+SELECT COLUMN_NAME FROM COLUMNS WHERE TABLE_NAME = 'country';
+
+SELECT table_name, (data_length + index_length)/1024 FROM INFORMATION_SCHEMA.TABLES 
+WHERE table_name = 'country' OR table_name = 'city' 
+OR table_name = 'countrylanguage' OR table_name = 'csv_test';
