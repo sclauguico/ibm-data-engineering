@@ -1,0 +1,5 @@
+SELECT * FROM tickets WHERE booking_ref = '0002D8';
+
+UPDATE tickets SET passenger_name = 'SANYA KORELEVA' WHERE booking_ref = '0002D8';
+
+pg_dump --username=postgres --host=localhost restored_demo > restored_demo_backup.sql
