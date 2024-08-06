@@ -1,0 +1,25 @@
+wget https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/example-guided-project/flights_RUSSIA_small.sql
+
+\i flights_RUSSIA_small.sql
+
+\dt
+
+SHOW wal_level;
+
+ALTER SYSTEM SET wal_level = 'logical';
+
+SHOW wal_level;
+
+Restart CLI
+
+SHOW wal_level;
+
+\connect demo
+
+SELECT * FROM pg_tables WHERE schemaname = 'bookings';
+
+ALTER TABLE boarding_passes ENABLE ROW LEVEL SECURITY;
+
+SELECT * FROM pg_tables WHERE schemaname = 'bookings';
+
+SELECT name, setting, short_desc FROM pg_settings WHERE name = 'wal_level';

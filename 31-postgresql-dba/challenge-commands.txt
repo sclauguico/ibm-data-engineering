@@ -1,0 +1,5 @@
+UPDATE pg_tables SET tablename = 'aircraft_fleet' WHERE tablename = 'aircrafts_data';
+
+ALTER TABLE aircrafts_data RENAME TO aircraft_fleet;
+
+SELECT tablename FROM pg_tables WHERE schemaname = 'bookings';
