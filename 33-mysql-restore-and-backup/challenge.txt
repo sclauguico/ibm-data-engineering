@@ -1,0 +1,25 @@
+wget https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-DB0231EN-SkillsNetwork/datasets/World/world_mysql_script.sql
+
+wget https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-DB0231EN-SkillsNetwork/datasets/World/world_mysql_update_1.sql
+
+create database world_P1;
+
+use world_P1;
+
+source world_mysql_script.sql;
+
+SELECT * FROM city WHERE countrycode='BGD';
+
+source world_mysql_update_1.sql;
+
+SELECT * FROM city WHERE countrycode='BGD';
+
+\q
+
+mysqldump --host=mysql --port=3306 --user=root --password world_P1 city > world_P1_city_mysql_backup.sql
+
+mysql --host=mysql --port=3306 --user=root --password --execute="DROP TABLE world_P1.city;"
+
+mysql --host=mysql --port=3306 --user=root --password world_P1 < world_P1_city_mysql_backup.sql
+
+mysql --host=mysql --port=3306 --user=root --password --execute="SELECT * FROM world_P1.city;"
