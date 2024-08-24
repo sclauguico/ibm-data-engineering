@@ -1,0 +1,17 @@
+airflow dags list
+
+airflow tasks list example_bash_operator
+
+airflow tasks list tutorial
+
+airflow dags unpause tutorial
+
+airflow dags pause tutorial
+
+airflow dags unpause example_bash_operator
+
+airflow tasks list example_branch_labels
+
+airflow dags unpause example_branch_labels
+
+airflow dags pause example_branch_labels
