@@ -1,0 +1,39 @@
+wget https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/example-guided-project/flights_RUSSIA_small.sql
+
+\i flights_RUSSIA_small.sql
+
+\dt
+
+CREATE ROLE read_only;
+
+GRANT CONNECT ON DATABASE demo TO read_only;
+
+GRANT USAGE ON SCHEMA bookings TO read_only;
+
+GRANT SELECT ON ALL TABLES IN SCHEMA bookings TO read_only;
+
+
+
+CREATE ROLE read_write;
+
+GRANT CONNECT ON DATABASE demo TO read_write;
+
+GRANT USAGE ON SCHEMA bookings TO read_write;
+
+GRANT SELECT, INSERT, DELETE, UPDATE ON ALL TABLES IN SCHEMA bookings TO read_write;
+
+
+
+CREATE USER user_a WITH PASSWORD 'user_a_password';
+
+GRANT read_only TO user_a;
+
+\du
+
+
+
+REVOKE SELECT ON aircrafts_data FROM user_a;
+
+REVOKE read_only FROM user_a;
+
+\du

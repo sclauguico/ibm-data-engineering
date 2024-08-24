@@ -1,0 +1,3 @@
+CREATE USER user_b WITH PASSWORD 'user_b_password';
+
+GRANT read_write TO user_b;
