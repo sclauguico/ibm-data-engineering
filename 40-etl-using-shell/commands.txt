@@ -1,0 +1,85 @@
+echo "database" | cut -c1-4
+
+echo "database" | cut -c5-8
+
+echo "database" | cut -c1,5
+
+cut -d":" -f1 /etc/passwd
+
+cut -d":" -f1,3,6 /etc/passwd
+
+cut -d":" -f3-6 /etc/passwd
+
+echo "Shell Scripting" | tr "[a-z]" "[A-Z]"
+
+echo "Shell Scripting" | tr "[:lower:]" "[:upper:]"
+
+echo "Shell Scripting" | tr  "[A-Z]" "[a-z]"
+
+echo "Shell Scripting" | tr  "[A-Z]" "[a-z]"
+
+ps | tr -s " "
+
+echo "My login pin is 5634" | tr -d "[:digit:]"
+
+
+\c template1
+
+create table users(username varchar(50),userid int,homedirectory varchar(100));
+
+touch csv2db.sh
+
+```
+# This script
+# Extracts data from /etc/passwd file into a CSV file.
+
+# The csv data file contains the user name, user id and
+# home directory of each user account defined in /etc/passwd
+
+# Transforms the text delimiter from ":" to ",".
+# Loads the data from the CSV file into a table in PostgreSQL database.
+
+# Extract phase
+
+echo "Extracting data"
+
+# Extract the columns 1 (user name), 2 (user id) and 
+# 6 (home directory path) from /etc/passwd
+
+cut -d":" -f1,3,6 /etc/passwd > extracted-data.txt
+
+# Transform phase
+echo "Transforming data"
+# read the extracted data and replace the colons with commas.
+
+tr ":" "," < extracted-data.txt  > transformed-data.csv
+
+# Load phase
+echo "Loading data"
+# Set the PostgreSQL password environment variable.
+# Replace <yourpassword> with your actual PostgreSQL password.
+export PGPASSWORD=<yourpassword>;
+# Send the instructions to connect to 'template1' and
+# copy the file to the table 'users' through command pipeline.
+echo "\c template1;\COPY users  FROM '/home/project/transformed-data.csv' DELIMITERS ',' CSV;" | psql --username=postgres --host=postgres
+
+echo "SELECT * FROM users;" | psql --username=postgres --host=postgres template1
+```
+
+bash csv2db.sh
+
+cut -d":" -f1,3,6 /etc/passwd > extracted-data.txt
+
+cat extracted-data.txt
+
+bash csv2db.sh
+
+cat transformed-data.csv
+
+COPY table_name FROM 'filename' DELIMITERS 'delimiter_character' FORMAT;
+
+bash csv2db.sh
+
+echo "SELECT * FROM users;" | psql --username=postgres --host=postgres template1
+
+bash csv2db.sh
