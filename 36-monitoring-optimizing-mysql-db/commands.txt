@@ -1,0 +1,9 @@
+wget https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-DB0231EN-SkillsNetwork/datasets/World/world_mysql_script.sql
+
+CREATE DATABASE world;
+
+USE world;
+
+SOURCE world_mysql_script.sql;
+
+SHOW TABLES;
