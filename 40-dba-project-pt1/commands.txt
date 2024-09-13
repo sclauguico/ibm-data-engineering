@@ -1,0 +1,18 @@
+https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-DB0231EN-SkillsNetwork/labs/Final%20Assignment/postgres-setup.sh
+
+bash porstgres-setup.sh
+
+CREATE USER backup_operator WITH PASSWORD 'backup_op_password';
+
+CREATE ROLE backup;
+
+\i setup.sql
+
+GRANT CONNECT ON DATABASE tolldata TO backup;
+
+GRANT SELECT ON ALL TABLES IN SCHEMA toll TO backup;
+
+GRANT backup to backup_operator;
+
+
+
