@@ -1,0 +1,13 @@
+SELECT COUNT(*) AS total_rows FROM billing;
+
+CREATE VIEW basicbilldetails AS
+SELECT 
+   customerid,
+    month,
+    billedamount
+FROM billing;
+
+SELECT strftime('%Y-%m-%d %H:%M:%f', 'now'), * FROM billing WHERE billedamount = 19929;
+SELECT strftime('%Y-%m-%d %H:%M:%f', 'now');
+
+EXPLAIN SELECT * FROM billing WHERE billedamount = 19929;
