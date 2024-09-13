@@ -1,0 +1,13 @@
+https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-DB0231EN-SkillsNetwork/labs/Final%20Assignment/billingdata.sql
+
+SOURCE billingdata.sql;
+
+SHOW tables;
+
+SELECT table_name, (data_length + index_length)/1024 FROM information_schema.tables WHERE table_name = 'billdata';
+
+SELECT * FROM billdata WHERE billedamount > 19999;
+
+CREATE INDEX billedamount_index ON billdata(billedamount);
+
+SELECT table_name, engine FROM information_schema.tables WHERE table_name = 'billdata';
