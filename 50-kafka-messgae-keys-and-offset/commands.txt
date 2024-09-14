@@ -1,0 +1,98 @@
+wget https://downloads.apache.org/kafka/3.8.0/kafka_2.13-3.8.0.tgz
+
+tar -xzf kafka_2.13-3.8.0.tgz
+
+
+
+
+cd kafka_2.13-3.8.0
+
+KAFKA_CLUSTER_ID="$(bin/kafka-storage.sh random-uuid)"
+
+bin/kafka-storage.sh format -t $KAFKA_CLUSTER_ID -c config/kraft/server.properties
+
+bin/kafka-server-start.sh config/kraft/server.properties
+
+
+
+
+
+cd kafka_2.13-3.8.0
+
+bin/kafka-topics.sh --create --topic bankbranch --partitions 2 --bootstrap-server localhost:9092
+
+bin/kafka-topics.sh --bootstrap-server localhost:9092 --list
+
+bin/kafka-topics.sh --bootstrap-server localhost:9092 --describe --topic bankbranch
+
+bin/kafka-console-producer.sh --bootstrap-server localhost:9092 --topic bankbranch
+
+{"atmid": 1, "transid": 100}
+
+{"atmid": 1, "transid": 101}
+
+{"atmid": 2, "transid": 200}
+
+{"atmid": 1, "transid": 102}
+
+{"atmid": 2, "transid": 201}
+
+
+
+
+cd kafka_2.13-3.8.0
+
+bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic bankbranch --from-beginning
+
+
+
+
+
+
+bin/kafka-console-producer.sh --bootstrap-server localhost:9092 --topic bankbranch --property parse.key=true --property key.separator=:
+
+1:{"atmid": 1, "transid": 103}
+
+1:{"atmid": 1, "transid": 104}
+
+2:{"atmid": 2, "transid": 202}
+
+2:{"atmid": 2, "transid": 203}
+
+1:{"atmid": 1, "transid": 105}
+
+
+
+bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic bankbranch --from-beginning --property print.key=true --property key.separator=:
+
+
+
+
+bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic bankbranch --group atm-app
+
+Ctrl + C
+
+bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 --describe --group atm-app
+
+
+1:{"atmid": 1, "transid": 106}
+
+2:{"atmid": 2, "transid": 204}
+
+
+bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 --describe --group atm-app
+
+bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic bankbranch --group atm-app
+
+
+
+
+bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092  --topic bankbranch --group atm-app --reset-offsets --to-earliest --execute
+
+bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic bankbranch --group atm-app
+
+Ctrl + C
+
+bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092  --topic bankbranch --group atm-app --reset-offsets --shift-by -2 --execute
+
+bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic bankbranch --group atm-app
