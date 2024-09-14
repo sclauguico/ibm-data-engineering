@@ -1,0 +1,9 @@
+export AIRFLOW_HOME=/home/project/airflow
+
+cp dummy_dag.py $AIRFLOW_HOME/dags
+
+airflow dags list
+
+airflow dags list | grep dummy_dag
+
+airflow tasks list dummy_dag
