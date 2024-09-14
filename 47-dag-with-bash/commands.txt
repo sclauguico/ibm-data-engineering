@@ -1,0 +1,11 @@
+export AIRFLOW_HOME=/home/project/airflow
+echo $AIRFLOW_HOME
+
+export AIRFLOW_HOME=/home/project/airflow
+cp my_first_dag.py $AIRFLOW_HOME/dags
+
+airflow dags list
+
+airflow dags list|grep "my-first-dag"
+
+airflow tasks list my-first-dag
