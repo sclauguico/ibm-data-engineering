@@ -58,7 +58,7 @@ tr ":" "," < extracted-data.txt  > transformed-data.csv
 echo "Loading data"
 # Set the PostgreSQL password environment variable.
 # Replace <yourpassword> with your actual PostgreSQL password.
-export PGPASSWORD=<yourpassword>;
+export PGPASSWORD=myJdIbAu6ZGKrGKAYuvBC5xU;
 # Send the instructions to connect to 'template1' and
 # copy the file to the table 'users' through command pipeline.
 echo "\c template1;\COPY users  FROM '/home/project/transformed-data.csv' DELIMITERS ',' CSV;" | psql --username=postgres --host=postgres
