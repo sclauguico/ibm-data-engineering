@@ -1,0 +1,9 @@
+createdb -h postgres -U postgres -p 5432 practice
+
+psql  -h postgres -U postgres -p 5432 practice < star-schema.sql
+
+psql  -h postgres -U postgres -p 5432 practice < DimMonth.sql
+psql  -h postgres -U postgres -p 5432 practice < DimCustomer.sql
+psql  -h postgres -U postgres -p 5432 practice < FactBilling.sql
+
+psql  -h postgres -U postgres -p 5432 practice < verify.sql

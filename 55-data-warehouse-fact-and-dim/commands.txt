@@ -1,0 +1,22 @@
+export PGPASSWORD=2g507mzE3Mr0aMurG2LmCFB3
+
+createdb -h postgres -U postgres -p 5432 billingDW
+
+wget https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-DB0260EN-SkillsNetwork/labs/Working%20with%20Facts%20and%20Dimension%20Tables/star-schema.sql
+
+
+
+wget https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-DB0260EN-SkillsNetwork/labs/Setting%20up%20a%20staging%20area/billing-datawarehouse.tgz
+
+tar -xvzf billing-datawarehouse.tgz
+ls *.sql
+
+psql  -h postgres -U postgres -p 5432 billingDW < star-schema.sql
+
+psql  -h postgres -U postgres -p 5432 billingDW < DimCustomer.sql
+
+psql  -h postgres -U postgres -p 5432 billingDW < DimMonth.sql
+
+psql  -h postgres -U postgres -p 5432 billingDW < DimMonth.sql
+
+psql  -h postgres -U postgres -p 5432 billingDW < verify.sql
